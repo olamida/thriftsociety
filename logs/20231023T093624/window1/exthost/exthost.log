@@ -1,0 +1,26 @@
+2023-10-23 09:36:35.800 [info] Extension host with pid 74695 started
+2023-10-23 09:36:35.800 [info] Skipping acquiring lock for /opt/lampp/htdocs/test_run/naptin-coop-v1/User/workspaceStorage/6ffbcd6703c9074f5b14f7274a4ed28a.
+2023-10-23 09:36:37.066 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2023-10-23 09:36:37.176 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-10-23 09:36:37.392 [info] Eager extensions activated
+2023-10-23 09:36:37.398 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-10-23 09:36:37.405 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-10-23 09:36:48.440 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2023-10-23 09:37:39.702 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-10-23 09:37:39.994 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-10-23 09:37:40.467 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-10-23 09:39:13.714 [info] Extension host terminating: renderer closed the MessagePort
+2023-10-23 09:39:13.818 [info] Extension host with pid 74695 exiting with code 0
+2023-10-23 09:39:18.349 [info] Extension host with pid 75009 started
+2023-10-23 09:39:18.349 [info] Skipping acquiring lock for /opt/lampp/htdocs/test_run/naptin-coop-v1/User/workspaceStorage/4114aace310cc486e620fb59b643c900.
+2023-10-23 09:39:18.750 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-10-23 09:39:18.766 [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+2023-10-23 09:39:19.661 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-10-23 09:39:19.816 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-10-23 09:39:20.651 [info] Eager extensions activated
+2023-10-23 09:39:21.080 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-10-23 09:39:21.087 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-10-23 09:44:01.747 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-10-23 09:53:04.053 [info] ExtensionService#_doActivateExtension vscode.php-language-features, startup: false, activationEvent: 'onLanguage:php'
+2023-10-23 12:34:07.720 [info] Extension host terminating: renderer closed the MessagePort
+2023-10-23 12:34:07.776 [info] Extension host with pid 75009 exiting with code 0

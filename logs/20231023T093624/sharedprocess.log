@@ -1,0 +1,17 @@
+2023-10-23 09:36:33.559 [info] Started initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
+2023-10-23 09:36:34.628 [warning] Failed to create default profile extensions manifest in extensions installation folder. file:///root/.vscode/extensions Unable to create file 'vscode-userdata:/root/.vscode/extensions/extensions.json' that already exists when overwrite flag is not set
+2023-10-23 09:36:34.629 [info] Completed initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
+2023-10-23 09:45:18.012 [info] Getting Manifest... onecentlin.laravel-blade
+2023-10-23 09:45:18.048 [info] Installing extension: onecentlin.laravel-blade
+2023-10-23 09:46:30.344 [info] Extension signature is verified: onecentlin.laravel-blade
+2023-10-23 09:46:32.514 [info] Extracted extension to file:///root/.vscode/extensions/onecentlin.laravel-blade-1.34.0: onecentlin.laravel-blade
+2023-10-23 09:46:32.581 [info] Renamed to /root/.vscode/extensions/onecentlin.laravel-blade-1.34.0
+2023-10-23 09:46:32.588 [info] Extracting extension completed. onecentlin.laravel-blade
+2023-10-23 09:46:32.690 [info] Extension installed successfully: onecentlin.laravel-blade
+2023-10-23 09:46:32.721 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at s.create (/snap/code/143/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:30209)
+    at i (/snap/code/143/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:30329)
+    at t.fb (/snap/code/143/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:35755)
+    at t.stat (/snap/code/143/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:28201)
+    at async w.stat (/snap/code/143/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:15579)
+    at async Q.tb (/snap/code/143/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:109:9514)

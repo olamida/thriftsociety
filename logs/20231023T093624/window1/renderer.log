@@ -1,0 +1,8 @@
+2023-10-23 09:36:29.097 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-dotnettools.dotnet-interactive-vscode' wants API proposal 'languageConfigurationAutoClosingPairs' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2023-10-23 09:36:29.126 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'github.copilot-chat' wants API proposal 'terminalContextMenu' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2023-10-23 09:36:31.517 [info] Started initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
+2023-10-23 09:36:34.217 [info] Completed initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
+2023-10-23 09:36:40.259 [info] [perf] Render performance baseline is 179ms
+2023-10-23 09:39:15.234 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-dotnettools.dotnet-interactive-vscode' wants API proposal 'languageConfigurationAutoClosingPairs' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2023-10-23 09:39:15.235 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'github.copilot-chat' wants API proposal 'terminalContextMenu' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2023-10-23 09:39:23.714 [info] [perf] Render performance baseline is 514ms
