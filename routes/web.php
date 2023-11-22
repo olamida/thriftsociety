@@ -11,6 +11,9 @@ use App\Http\Controllers\LocaleController;
 // Switch between the included languages
 Route::get('lang/{lang}', [LocaleController::class, 'change'])->name('locale.change');
 
+// Switch between the included languages
+Route::view('/welcome', 'backend.office.dashboard');
+
 /*
  * Frontend Routes
  */
