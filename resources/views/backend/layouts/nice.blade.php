@@ -9,6 +9,8 @@
         <meta name="author" content="@yield('meta_author', 'Yusuf N. Yahaya')">
         @yield('meta')
 
+        @stack('before-styles')
+        
         <!-- Favicons -->
         <link href="{{ asset('office/assets/img/favicon.png') }}" rel="icon">
         <link href="{{ asset('office/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -29,6 +31,7 @@
         <!-- Template Main CSS File -->
         <link href="{{ asset('office/assets/css/style.css') }}" rel="stylesheet">
 
+        @stack('after-styles')
     </head>
     <body>
         <!-- ======= Header ======= -->

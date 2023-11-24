@@ -10,7 +10,7 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="users-profile.html">
         <i class="bi bi-person"></i>
-        <span>Profile</span>
+        <span>Members</span>
       </a>
     </li><!-- End Profile Page Nav -->
 
@@ -110,18 +110,18 @@
     </li><!-- End Tranz Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+      <a class="nav-link collapsed" data-bs-target="#icons-nav2" data-bs-toggle="collapse" href="#">
         <i class="bi bi-gem"></i><span>Site Management</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <ul id="icons-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
           <a href="icons-bootstrap.html">
-            <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+            <i class="bi bi-circle"></i><span>Site Info</span>
           </a>
         </li>
         <li>
           <a href="icons-remix.html">
-            <i class="bi bi-circle"></i><span>Remix Icons</span>
+            <i class="bi bi-circle"></i><span>Blog</span>
           </a>
         </li>
         <li>
@@ -131,6 +131,7 @@
         </li>
       </ul>
     </li><!-- End site-man Nav -->
+
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="pages-login.html">

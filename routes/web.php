@@ -15,7 +15,13 @@ Route::get('lang/{lang}', [LocaleController::class, 'change'])->name('locale.cha
 Route::view('/welcome', 'backend.office.dashboard');
 
 // Switch between the included languages
-Route::view('/testPage', 'backend.office.testPage');
+Route::view('/testPage', 'backend.office.dashboard');
+
+// Switch between the included languages
+Route::view('/members', 'backend.office.members.index');
+
+// Switch between the included languages
+Route::view('/repayment', 'backend.office.loans.repayment-status');
 
 /*
  * Frontend Routes
