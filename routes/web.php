@@ -11,16 +11,16 @@ use App\Http\Controllers\LocaleController;
 // Switch between the included languages
 Route::get('lang/{lang}', [LocaleController::class, 'change'])->name('locale.change');
 
-// Switch between the included languages
-Route::view('/welcome', 'backend.office.dashboard');
+// Backend Office Dashboard
+Route::view('/welcome', 'backend.office.dashboard')->name('office.welcome');
 
 // Switch between the included languages
 Route::view('/testPage', 'backend.office.dashboard');
 
-// Switch between the included languages
+// Members index page
 Route::view('/members', 'backend.office.members.index');
 
-// Switch between the included languages
+// Loan Repayment status page
 Route::view('/repayment', 'backend.office.loans.repayment-status');
 
 /*

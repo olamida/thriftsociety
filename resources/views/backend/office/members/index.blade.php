@@ -1,367 +1,412 @@
 @extends('backend.layouts.nice')
 
-@section('title', __('Dashboard'))
+@section('title', __('Members'))
 
-@section('content')
+    <head>
+        @stack('before-styles')
+            
+            <!-- Favicons -->
+            <link href="{{ asset('office/assets/img/favicon.png') }}" rel="icon">
+            <link href="{{ asset('office/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+            <!-- Google Fonts -->
+            <link href="https://fonts.gstatic.com" rel="preconnect">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+            <!-- Vendor CSS Files -->
+            <link href="{{ asset('office/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('office/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+            <link href="{{ asset('office/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('office/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+            <link href="{{ asset('office/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+            <link href="{{ asset('office/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+            <link href="{{ asset('office/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+            <!-- Template Main CSS File -->
+            <link href="{{ asset('office/assets/css/style.css') }}" rel="stylesheet">
+
+        @stack('after-styles')        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .container .table-wrap {
+                margin: 20px auto;
+                overflow-x: auto
+            }
+
+            .container .table-wrap::-webkit-scrollbar {
+                height: 5px
+            }
+
+            .container .table-wrap::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                background-image: linear-gradient(to right, #5D7ECD, #0C91E6)
+            }
+
+            img {
+                height: 30px;
+                width: 30px;
+                object-fit: cover;
+            }
+
+            .w100 {
+                max-width: 100px;
+                min-width: 100px;
+            }
+
+            .w350 {
+                max-width: 550px;
+                min-width: 550px;
+            }
+
+            .btn.btn-primary.h-1 {
+                background-color: #FB0778;
+                color: white;
+                font-size: 14px;
+                border: none;
+                padding: 2px 10px;
+            }
+
+            .btn.btn-primary.h-1:hover {
+                background-color: #ee1a7d;
+            }
+
+            .btn.btn-primary.h-2 {
+                background-color: #f8d303;
+                color: white;
+                font-size: 14px;
+                border: none;
+                padding: 2px 10px;
+            }
+
+            .btn.btn-primary.h-2:hover {
+                background-color: #c5b140;
+            }
+
+            .btn.btn-primary.h-3 {
+                background-color: #6f00ff;
+                color: white;
+                font-size: 14px;
+                border: none;
+                padding: 2px 10px;
+            }
+
+            .btn.btn-primary.h-3:hover {
+                background-color: #7638c9;
+            }
+
+            .bg-pink {
+                height: 10px;
+                width: 10px;
+                background-color: #ee1a7d;
+            }
+
+            .bg-yellow {
+                height: 10px;
+                width: 10px;
+                background-color: #f8d303;
+            }
+
+            .bg-violet {
+                height: 10px;
+                width: 10px;
+                background-color: #6f00ff;
+            }
+
+
+            .btn.btn-secondary.pink {
+                background-color: transparent;
+                font-size: 12px;
+                border: none;
+                background-color: #f5cade;
+                color: #ee1a7d;
+                width: 100%;
+                padding: 5px 15px;
+            }
+
+            .btn.btn-secondary.violet {
+                background-color: transparent;
+                font-size: 12px;
+                border: none;
+                color: #7638c9;
+                background-color: #d8c6f0;
+                width: 100%;
+                padding: 5px 15px;
+            }
+
+            .btn.btn-secondary.yellow {
+                background-color: transparent;
+                font-size: 12px;
+                border: none;
+                background-color: #f7ecb1;
+                color: #f88e03;
+                width: 100%;
+                padding: 5px 15px;
+            }
+            @media(min-width: 992px) {
+                .container .table-wrap {
+                    overflow: hidden;
+                }
+            }
+        </style>
+        <style>
+            @import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
+            @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+        </style>
+    </head>
+
+
+    @section('content')
     <div class="pagetitle">
-      <h1>Members</h1>
+      <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Members</li>
+          <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-      <div class="row">  
-        <!-- Left side columns -->
-        <div class="col-lg-8">
-          <div class="row">
+        <div class="row">
 
-            <!-- Members Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-                <div class="card info-card customers-card">
-
-                <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                        <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                </div>
-
-                <div class="card-body">
-                    <h5 class="card-title">Members <span>| The total</span></h5>
-
-                    <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                        <i class="bi bi-people"></i>
+                <!-- Header --> 
+                <header class="bg-surface-primary border-bottom pt-6">
+                    <div class="container-fluid">
+                        <div class="mb-npx">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                                <!-- Title --> 
+                                <h1 class="h2 mb-0 ls-tight">Application</h1>
+                            </div>
+                            <!-- Actions --> 
+                            <div class="col-sm-6 col-12 text-sm-end">
+                                <div class="mx-n1"> 
+                                    <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1"> 
+                                    <span class=" pe-2"> <i class="bi bi-pencil"></i> </span> 
+                                    <span>Edit</span> 
+                                    </a> 
+                                    <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1"> 
+                                    <span class=" pe-2"> <i class="bi bi-plus"></i> </span> 
+                                    <span>Create</span> 
+                                    </a> 
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Nav --> 
+                        <ul class="nav nav-tabs mt-4 overflow-x border-0">
+                            <li class="nav-item "> 
+                                <a href="#" class="nav-link active">All files</a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a href="#" class="nav-link font-regular">Shared</a> 
+                            </li>
+                            <li class="nav-item"> 
+                                <a href="#" class="nav-link font-regular">File requests</a> 
+                            </li>
+                        </ul>
+                        </div>
                     </div>
-                    <div class="ps-3">
-                        <h6>1244</h6>
-                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
+                </header>
+                <!-- Main --> 
+                <main class="py-6 bg-surface-secondary">
+                    <div class="container-fluid">
+                    <!-- Card stats --> 
+                    <div class="row g-6 mb-6">
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col"> 
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Budget</span> 
+                                        <span class="h3 font-bold mb-0">$750.90</span> 
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle"> 
+                                            <i class="bi bi-credit-card"></i> 
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="mt-2 mb-0 text-sm"> 
+                                    <span class="badge badge-pill bg-soft-success text-success me-2"> 
+                                    <i class="bi bi-arrow-up me-1"></i>13% </span> 
+                                    <span class="text-nowrap text-xs text-muted">Since last month</span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col"> 
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">New projects</span> 
+                                            <span class="h3 font-bold mb-0">215</span> 
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle"> 
+                                                <i class="bi bi-people"></i> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 mb-0 text-sm"> 
+                                    <span class="badge badge-pill bg-soft-success text-success me-2"> 
+                                    <i class="bi bi-arrow-up me-1"></i>30% </span> 
+                                    <span class="text-nowrap text-xs text-muted">Since last month</span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col"> 
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total hours</span> 
+                                        <span class="h3 font-bold mb-0">1.400</span> 
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-info text-white text-lg rounded-circle"> 
+                                            <i class="bi bi-clock-history"></i> 
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="mt-2 mb-0 text-sm"> 
+                                    <span class="badge badge-pill bg-soft-danger text-danger me-2"> 
+                                    <i class="bi bi-arrow-down me-1"></i>-5% </span> 
+                                    <span class="text-nowrap text-xs text-muted">Since last month</span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col"> <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work load</span> <span class="h3 font-bold mb-0">95%</span> </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle"> <i class="bi bi-minecart-loaded"></i> </div>
+                                    </div>
+                                    </div>
+                                    <div class="mt-2 mb-0 text-sm"> <span class="badge badge-pill bg-soft-success text-success me-2"> <i class="bi bi-arrow-up me-1"></i>10% </span> <span class="text-nowrap text-xs text-muted">Since last month</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="card shadow border-0 mb-7">
+                        <div class="card-header">
+                            <h5 class="mb-0">Applications</h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-nowrap">
+                                <thead class="thead-light">
+                                    <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Company</th>
+                                    <th scope="col">Offer</th>
+                                    <th scope="col">Meeting</th>
+                                    <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Robert Fox </a> </td>
+                                    <td> Feb 15, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-1.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Dribbble </a> </td>
+                                    <td> $3.500 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Darlene Robertson </a> </td>
+                                    <td> Apr 15, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-2.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Netguru </a> </td>
+                                    <td> $2.750 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>Postponed </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Theresa Webb </a> </td>
+                                    <td> Mar 20, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-3.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Figma </a> </td>
+                                    <td> $4.200 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Kristin Watson </a> </td>
+                                    <td> Feb 15, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-4.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Mailchimp </a> </td>
+                                    <td> $3.500 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-dark"></i>Not discussed </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Cody Fisher </a> </td>
+                                    <td> Apr 10, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Webpixels </a> </td>
+                                    <td> $1.500 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-danger"></i>Canceled </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Robert Fox </a> </td>
+                                    <td> Feb 15, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-1.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Dribbble </a> </td>
+                                    <td> $3.500 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Darlene Robertson </a> </td>
+                                    <td> Apr 15, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-2.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Netguru </a> </td>
+                                    <td> $2.750 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>Postponed </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Theresa Webb </a> </td>
+                                    <td> Mar 20, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-3.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Figma </a> </td>
+                                    <td> $4.200 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Kristin Watson </a> </td>
+                                    <td> Feb 15, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-4.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Mailchimp </a> </td>
+                                    <td> $3.500 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-dark"></i>Not discussed </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                    <tr>
+                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Cody Fisher </a> </td>
+                                    <td> Apr 10, 2021 </td>
+                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Webpixels </a> </td>
+                                    <td> $1.500 </td>
+                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-danger"></i>Canceled </span> </td>
+                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer border-0 py-5"> <span class="text-muted text-sm">Showing 10 items out of 250 results found</span> 
+                        </div>
                     </div>
-
                 </div>
-                </div>
+                </main>                  
 
-            </div><!-- End Customers Card -->
+        </div>
 
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Reports -->
-            <div class="col-12">
-              <div class="card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
-
-                  <!-- Line Chart -->
-                  <div id="reportsChart"></div>
-
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                      new ApexCharts(document.querySelector("#reportsChart"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: "gradient",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
-                        }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
-
-                </div>
-
-              </div>
-            </div><!-- End Reports -->
-
-            <!-- Recent Sales -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-
-          </div>
-        </div><!-- End Left side columns -->
-
-        <!-- Right side columns -->
-        <div class="col-lg-4">
-
-          <!-- Recent Activity -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class="card-body">
-              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
-
-              <div class="activity">
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                  <div class="activity-content">
-                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">56 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
-                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
-                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                  <div class="activity-content">
-                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
-                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                  <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
-
-              </div>
-
-            </div>
-          </div><!-- End Recent Activity -->
-
-        </div><!-- End Right side columns -->
-      </div>
-    </section>
 @endsection
+
