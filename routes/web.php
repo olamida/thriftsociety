@@ -23,6 +23,9 @@ Route::view('/members', 'backend.office.members.index');
 // Loan Repayment status page
 Route::view('/repayment', 'backend.office.loans.repayment-status');
 
+// Test Cork UI design
+Route::view('/cork', 'backend.office.cord');
+
 /*
  * Frontend Routes
  */
