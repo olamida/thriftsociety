@@ -12,7 +12,7 @@
 
                 <!--  Logo  -->
                 <div class="nav-logo align-self-center">
-                    <a class="navbar-brand" href="index.html"><img alt="logo" src="{{ asset('office/assets/img/file.enc') }}"> <span class="navbar-brand-name">CORK</span></a>
+                    <a class="navbar-brand" href="index.html"><img alt="logo" src="{{ asset('office/assets/img/file.enc') }}"> <span class="navbar-brand-name">NAPTIN-THRIFT</span></a>
                 </div>
 
                 <!--  Search NAVBAR  -->
