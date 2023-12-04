@@ -43,4 +43,8 @@ If you discover a security vulnerability within this boilerplate, please send an
 ### License
 
 MIT: [http://anthony.mit-license.org](http://anthony.mit-license.org)
+<<<<<<< HEAD
 # thriftsociety  
+=======
+# thriftsociety
+>>>>>>> origin/main
