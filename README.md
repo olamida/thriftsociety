@@ -47,4 +47,7 @@ MIT: [http://anthony.mit-license.org](http://anthony.mit-license.org)
 # thriftsociety  
 =======
 # thriftsociety
+<<<<<<< HEAD
 >>>>>>> origin/main
+=======
+>>>>>>> refs/remotes/origin/main

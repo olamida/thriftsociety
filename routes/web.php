@@ -15,7 +15,7 @@ Route::get('lang/{lang}', [LocaleController::class, 'change'])->name('locale.cha
 Route::view('/welcome', 'backend.office.dashboard')->name('office.welcome');
 
 // Switch between the included languages
-Route::view('/testPage', 'backend.office.dashboard');
+Route::view('/testPage', 'frontend.thrift.login');
 
 // Members index page
 Route::view('/members', 'backend.office.members.index');

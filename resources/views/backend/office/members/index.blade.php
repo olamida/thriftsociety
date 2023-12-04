@@ -1,4 +1,4 @@
-@extends('backend.layouts.nice')
+@extends('backend.layouts.cork')
 
 @section('title', __('Members'))
 
