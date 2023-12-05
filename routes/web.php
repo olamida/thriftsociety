@@ -21,7 +21,9 @@ Route::view('/welcome', 'backend.office.dashboard')->name('office.welcome');
 Route::view('/testPage', 'backend.office.dashboard');
 
 // Members index page
-Route::view('/members', 'backend.office.members.index');
+Route::view('/members', 'backend.office.members.index')->name('office.members');
+
+Route::view('/members-view', 'backend.office.members.profile')->name('office.members.view');
 
 // Loan Repayment status page
 Route::view('/repayment', 'backend.office.loans.repayment-status');

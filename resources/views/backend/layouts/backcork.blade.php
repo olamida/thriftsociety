@@ -8,7 +8,7 @@
         <title>{{ appName() }} | @yield('title')</title>
         <meta name="description" cohellontent="@yield('meta_description', appName())">
         <meta name="author" content="@yield('meta_author', 'Yusuf N. Yahaya')">
-        <link rel="icon" type="image/x-icon" href="{{ asset('office/cork/assets/img/favicon.ico') }}"/>
+        <link rel="icon" type="image/x-icon" href="{{ asset('office/assets/img/file.enc') }}"/>
         @yield('meta')
 
         @stack('before-styles')
@@ -18,10 +18,7 @@
         <link href="{{ asset('office/backcork/assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
 
-
-
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="{{ asset('office/backcork/plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
         <style>
             /*
                 The below code is for DEMO purpose --- Use it if you are using this demo otherwise Remove it
@@ -189,9 +186,7 @@
         @stack('after-scripts')
 
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-        <script src="{{ asset('office/backcork/plugins/apex/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('office/backcork/assets/js/dashboard/dash_1.js') }}"></script>
-        <script src="{{ asset('office/backcork/assets/js/dashboard/dash_2.js') }}"></script>
+
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     </body>
 </html>
