@@ -14,8 +14,11 @@ Route::get('lang/{lang}', [LocaleController::class, 'change'])->name('locale.cha
 // Backend Office Dashboard
 Route::view('/welcome', 'backend.office.dashboard')->name('office.welcome');
 
+// login page with cork: done
+//Route::view('/testPage', 'frontend.thrift.login');
+
 // Switch between the included languages
-Route::view('/testPage', 'frontend.thrift.login');
+Route::view('/testPage', 'backend.office.dashboard');
 
 // Members index page
 Route::view('/members', 'backend.office.members.index');
