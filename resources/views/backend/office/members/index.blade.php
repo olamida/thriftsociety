@@ -1,412 +1,420 @@
-@extends('backend.layouts.cork')
+@extends('backend.layouts.backcork')
 
 @section('title', __('Members'))
 
-    <head>
-        @stack('before-styles')
-            
-            <!-- Favicons -->
-            <link href="{{ asset('office/assets/img/favicon.png') }}" rel="icon">
-            <link href="{{ asset('office/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-            <!-- Google Fonts -->
-            <link href="https://fonts.gstatic.com" rel="preconnect">
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-            <!-- Vendor CSS Files -->
-            <link href="{{ asset('office/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-            <link href="{{ asset('office/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-            <link href="{{ asset('office/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-            <link href="{{ asset('office/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
-            <link href="{{ asset('office/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
-            <link href="{{ asset('office/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-            <link href="{{ asset('office/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
-
-            <!-- Template Main CSS File -->
-            <link href="{{ asset('office/assets/css/style.css') }}" rel="stylesheet">
-
-        @stack('after-styles')        
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-            * {
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-                font-family: 'Poppins', sans-serif;
-            }
-
-            .container .table-wrap {
-                margin: 20px auto;
-                overflow-x: auto
-            }
-
-            .container .table-wrap::-webkit-scrollbar {
-                height: 5px
-            }
-
-            .container .table-wrap::-webkit-scrollbar-thumb {
-                border-radius: 5px;
-                background-image: linear-gradient(to right, #5D7ECD, #0C91E6)
-            }
-
-            img {
-                height: 30px;
-                width: 30px;
-                object-fit: cover;
-            }
-
-            .w100 {
-                max-width: 100px;
-                min-width: 100px;
-            }
-
-            .w350 {
-                max-width: 550px;
-                min-width: 550px;
-            }
-
-            .btn.btn-primary.h-1 {
-                background-color: #FB0778;
-                color: white;
-                font-size: 14px;
-                border: none;
-                padding: 2px 10px;
-            }
-
-            .btn.btn-primary.h-1:hover {
-                background-color: #ee1a7d;
-            }
-
-            .btn.btn-primary.h-2 {
-                background-color: #f8d303;
-                color: white;
-                font-size: 14px;
-                border: none;
-                padding: 2px 10px;
-            }
-
-            .btn.btn-primary.h-2:hover {
-                background-color: #c5b140;
-            }
-
-            .btn.btn-primary.h-3 {
-                background-color: #6f00ff;
-                color: white;
-                font-size: 14px;
-                border: none;
-                padding: 2px 10px;
-            }
-
-            .btn.btn-primary.h-3:hover {
-                background-color: #7638c9;
-            }
-
-            .bg-pink {
-                height: 10px;
-                width: 10px;
-                background-color: #ee1a7d;
-            }
-
-            .bg-yellow {
-                height: 10px;
-                width: 10px;
-                background-color: #f8d303;
-            }
-
-            .bg-violet {
-                height: 10px;
-                width: 10px;
-                background-color: #6f00ff;
-            }
+@push('after-styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('office/backcork/assets/css/forms/theme-checkbox-radio.css') }}">
+    <link href="{{ asset('office/backcork/plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('office/backcork/assets/css/apps/contacts.css') }}" rel="stylesheet" type="text/css" />
+@endpush
 
 
-            .btn.btn-secondary.pink {
-                background-color: transparent;
-                font-size: 12px;
-                border: none;
-                background-color: #f5cade;
-                color: #ee1a7d;
-                width: 100%;
-                padding: 5px 15px;
-            }
 
-            .btn.btn-secondary.violet {
-                background-color: transparent;
-                font-size: 12px;
-                border: none;
-                color: #7638c9;
-                background-color: #d8c6f0;
-                width: 100%;
-                padding: 5px 15px;
-            }
+@section('content')
+                    <div class="col-lg-12">
+                        <div class="widget-content searchable-container list">
 
-            .btn.btn-secondary.yellow {
-                background-color: transparent;
-                font-size: 12px;
-                border: none;
-                background-color: #f7ecb1;
-                color: #f88e03;
-                width: 100%;
-                padding: 5px 15px;
-            }
-            @media(min-width: 992px) {
-                .container .table-wrap {
-                    overflow: hidden;
-                }
-            }
-        </style>
-        <style>
-            @import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
-            @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
-        </style>
-    </head>
-
-
-    @section('content')
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section dashboard">
-        <div class="row">
-
-                <!-- Header --> 
-                <header class="bg-surface-primary border-bottom pt-6">
-                    <div class="container-fluid">
-                        <div class="mb-npx">
-                        <div class="row align-items-center">
-                            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                                <!-- Title --> 
-                                <h1 class="h2 mb-0 ls-tight">Application</h1>
-                            </div>
-                            <!-- Actions --> 
-                            <div class="col-sm-6 col-12 text-sm-end">
-                                <div class="mx-n1"> 
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1"> 
-                                    <span class=" pe-2"> <i class="bi bi-pencil"></i> </span> 
-                                    <span>Edit</span> 
-                                    </a> 
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1"> 
-                                    <span class=" pe-2"> <i class="bi bi-plus"></i> </span> 
-                                    <span>Create</span> 
-                                    </a> 
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-5 col-md-5 col-sm-7 filtered-list-search layout-spacing align-self-center">
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <div class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                            <input type="text" class="form-control product-search" id="input-search" placeholder="Search Contacts...">
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Nav --> 
-                        <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                            <li class="nav-item "> 
-                                <a href="#" class="nav-link active">All files</a> 
-                            </li>
-                            <li class="nav-item"> 
-                                <a href="#" class="nav-link font-regular">Shared</a> 
-                            </li>
-                            <li class="nav-item"> 
-                                <a href="#" class="nav-link font-regular">File requests</a> 
-                            </li>
-                        </ul>
-                        </div>
-                    </div>
-                </header>
-                <!-- Main --> 
-                <main class="py-6 bg-surface-secondary">
-                    <div class="container-fluid">
-                    <!-- Card stats --> 
-                    <div class="row g-6 mb-6">
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                    <div class="col"> 
-                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Budget</span> 
-                                        <span class="h3 font-bold mb-0">$750.90</span> 
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle"> 
-                                            <i class="bi bi-credit-card"></i> 
+
+                                <div class="col-xl-8 col-lg-7 col-md-7 col-sm-5 text-sm-right text-center layout-spacing align-self-center">
+                                    <div class="d-flex justify-content-sm-end justify-content-center">
+                                        <svg id="btn-add-contact" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+
+                                        <div class="switch align-self-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list view-list active-view"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid view-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm"> 
-                                    <span class="badge badge-pill bg-soft-success text-success me-2"> 
-                                    <i class="bi bi-arrow-up me-1"></i>13% </span> 
-                                    <span class="text-nowrap text-xs text-muted">Since last month</span> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col"> 
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">New projects</span> 
-                                            <span class="h3 font-bold mb-0">215</span> 
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle"> 
-                                                <i class="bi bi-people"></i> 
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="addContactModalTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <i class="flaticon-cancel-12 close" data-dismiss="modal"></i>
+                                                    <div class="add-contact-box">
+                                                        <div class="add-contact-content">
+                                                            <form id="addContactModalTitle">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="contact-name">
+                                                                            <i class="flaticon-user-11"></i>
+                                                                            <input type="text" id="c-name" class="form-control" placeholder="Name">
+                                                                            <span class="validation-text"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="contact-email">
+                                                                            <i class="flaticon-mail-26"></i>
+                                                                            <input type="text" id="c-email" class="form-control" placeholder="Email">
+                                                                            <span class="validation-text"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="contact-occupation">
+                                                                            <i class="flaticon-fill-area"></i>
+                                                                            <input type="text" id="c-occupation" class="form-control" placeholder="Occupation">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="contact-phone">
+                                                                            <i class="flaticon-telephone"></i>
+                                                                            <input type="text" id="c-phone" class="form-control" placeholder="Phone">
+                                                                            <span class="validation-text"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="contact-location">
+                                                                            <i class="flaticon-location-1"></i>
+                                                                            <input type="text" id="c-location" class="form-control" placeholder="Location">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="btn-edit" class="float-left btn">Save</button>
+
+                                                    <button class="btn" data-dismiss="modal"> <i class="flaticon-delete-1"></i> Discard</button>
+
+                                                    <button id="btn-add" class="btn">Add</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mt-2 mb-0 text-sm"> 
-                                    <span class="badge badge-pill bg-soft-success text-success me-2"> 
-                                    <i class="bi bi-arrow-up me-1"></i>30% </span> 
-                                    <span class="text-nowrap text-xs text-muted">Since last month</span> 
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                    <div class="col"> 
-                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total hours</span> 
-                                        <span class="h3 font-bold mb-0">1.400</span> 
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-info text-white text-lg rounded-circle"> 
-                                            <i class="bi bi-clock-history"></i> 
+
+                            <div class="searchable-items list">
+                                <div class="items items-header-section">
+                                    <div class="item-content">
+                                        <div class="">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input" id="contact-check-all">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <h4>Name</h4>
+                                        </div>
+                                        <div class="user-email">
+                                            <h4>Email</h4>
+                                        </div>
+                                        <div class="user-location">
+                                            <h4 style="margin-left: 0;">Location</h4>
+                                        </div>
+                                        <div class="user-phone">
+                                            <h4 style="margin-left: 3px;">Phone</h4>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2  delete-multiple"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Alan Green">Alan Green</p>
+                                                <p class="user-work" data-occupation="Web Developer">Web Developer</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="alan@mail.com">alan@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="Boston, USA">Boston, USA</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
                                     </div>
-                                    <div class="mt-2 mb-0 text-sm"> 
-                                    <span class="badge badge-pill bg-soft-danger text-danger me-2"> 
-                                    <i class="bi bi-arrow-down me-1"></i>-5% </span> 
-                                    <span class="text-nowrap text-xs text-muted">Since last month</span> 
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Linda Nelson">Linda Nelson</p>
+                                                <p class="user-work" data-occupation="Web Designer">Web Designer</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="linda@mail.com">linda@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="Sydney, Australia">Sydney, Australia</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Lila Perry">Lila Perry</p>
+                                                <p class="user-work" data-occupation="UX/UI Designer">UX/UI Designer</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="lila@mail.com">lila@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="Miami, USA">Miami, USA</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Andy King">Andy King</p>
+                                                <p class="user-work" data-occupation="Web Developer">Project Lead</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="andy@mail.com">andy@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="Tokyo, Japan">Tokyo, Japan</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Jesse Cory">Jesse Cory</p>
+                                                <p class="user-work" data-occupation="Web Developer">Web Developer</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="jesse@mail.com">jesse@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="Edinburgh, UK">Edinburgh, UK</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Xavier">Xavier</p>
+                                                <p class="user-work" data-occupation="UX/UI Designer">UX/UI Designer</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="xavier@mail.com">xavier@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="New York, USA">New York, USA</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Susan">Susan</p>
+                                                <p class="user-work" data-occupation="Project Manager">Project Manager</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="susan@mail.com">susan@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="Miami, USA">Miami, USA</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="items">
+                                    <div class="item-content">
+                                        <div class="user-profile">
+                                            <div class="n-chk align-self-center text-center">
+                                                <label class="new-control new-checkbox checkbox-primary">
+                                                  <input type="checkbox" class="new-control-input contact-chkbox">
+                                                  <span class="new-control-indicator"></span>
+                                                </label>
+                                            </div>
+                                            <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
+                                            <div class="user-meta-info">
+                                                <p class="user-name" data-name="Traci Lopez">Traci Lopez</p>
+                                                <p class="user-work" data-occupation="Web Developer">Web Developer</p>
+                                            </div>
+                                        </div>
+                                        <div class="user-email">
+                                            <p class="info-title">Email: </p>
+                                            <p class="usr-email-addr" data-email="traci@mail.com">traci@mail.com</p>
+                                        </div>
+                                        <div class="user-location">
+                                            <p class="info-title">Location: </p>
+                                            <p class="usr-location" data-location="Edinburgh, UK">Edinburgh, UK</p>
+                                        </div>
+                                        <div class="user-phone">
+                                            <p class="info-title">Phone: </p>
+                                            <p class="usr-ph-no" data-phone="+1 (070) 123-4567">+1 (070) 123-4567</p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus delete"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                    <div class="col"> <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work load</span> <span class="h3 font-bold mb-0">95%</span> </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle"> <i class="bi bi-minecart-loaded"></i> </div>
-                                    </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm"> <span class="badge badge-pill bg-soft-success text-success me-2"> <i class="bi bi-arrow-up me-1"></i>10% </span> <span class="text-nowrap text-xs text-muted">Since last month</span> </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
-                    <div class="card shadow border-0 mb-7">
-                        <div class="card-header">
-                            <h5 class="mb-0">Applications</h5>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover table-nowrap">
-                                <thead class="thead-light">
-                                    <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Company</th>
-                                    <th scope="col">Offer</th>
-                                    <th scope="col">Meeting</th>
-                                    <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Robert Fox </a> </td>
-                                    <td> Feb 15, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-1.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Dribbble </a> </td>
-                                    <td> $3.500 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Darlene Robertson </a> </td>
-                                    <td> Apr 15, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-2.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Netguru </a> </td>
-                                    <td> $2.750 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>Postponed </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Theresa Webb </a> </td>
-                                    <td> Mar 20, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-3.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Figma </a> </td>
-                                    <td> $4.200 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Kristin Watson </a> </td>
-                                    <td> Feb 15, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-4.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Mailchimp </a> </td>
-                                    <td> $3.500 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-dark"></i>Not discussed </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Cody Fisher </a> </td>
-                                    <td> Apr 10, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Webpixels </a> </td>
-                                    <td> $1.500 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-danger"></i>Canceled </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Robert Fox </a> </td>
-                                    <td> Feb 15, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-1.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Dribbble </a> </td>
-                                    <td> $3.500 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Darlene Robertson </a> </td>
-                                    <td> Apr 15, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-2.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Netguru </a> </td>
-                                    <td> $2.750 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>Postponed </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Theresa Webb </a> </td>
-                                    <td> Mar 20, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-3.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Figma </a> </td>
-                                    <td> $4.200 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-success"></i>Scheduled </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Kristin Watson </a> </td>
-                                    <td> Feb 15, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-4.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Mailchimp </a> </td>
-                                    <td> $3.500 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-dark"></i>Not discussed </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                    <tr>
-                                    <td> <img alt="..." src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Cody Fisher </a> </td>
-                                    <td> Apr 10, 2021 </td>
-                                    <td> <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-5.png" class="avatar avatar-xs rounded-circle me-2"> <a class="text-heading font-semibold" href="#"> Webpixels </a> </td>
-                                    <td> $1.500 </td>
-                                    <td> <span class="badge badge-lg badge-dot"> <i class="bg-danger"></i>Canceled </span> </td>
-                                    <td class="text-end"> <a href="#" class="btn btn-sm btn-neutral">View</a> <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-trash"></i> </button> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card-footer border-0 py-5"> <span class="text-muted text-sm">Showing 10 items out of 250 results found</span> 
-                        </div>
-                    </div>
-                </div>
-                </main>                  
-
-        </div>
-
 @endsection
 
+@push('after-scripts')
+    <script src="{{ asset('office/backcork/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('office/backcork/assets/js/apps/contact.js') }}"></script>
+@endpush
