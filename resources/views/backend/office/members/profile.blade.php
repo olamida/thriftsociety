@@ -20,7 +20,7 @@
                      </a>
                   </div>
                   <div class="text-center user-info">
-                     <img src="assets/img/90x90.jpg" alt="avatar">
+                     <img src="{{ asset('office/backcork/assets/img/90x90.jpg') }}" alt="avatar">
                      <p class="">Jimmy Turner</p>
                   </div>
                   <div class="user-info-list">
@@ -181,36 +181,11 @@
             </div>
         </div>
         <div class="col-xl-8 col-lg-6 col-md-7 col-sm-12 layout-top-spacing">
-            <div class="skills layout-spacing ">
-               <div class="widget-content widget-content-area">
-                  <h3 class="">Skills</h3>
-                  <div class="progress br-30">
-                     <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-title"><span>PHP</span> <span>25%</span> </div>
-                     </div>
-                  </div>
-                  <div class="progress br-30">
-                     <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-title"><span>Wordpress</span> <span>50%</span> </div>
-                     </div>
-                  </div>
-                  <div class="progress br-30">
-                     <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-title"><span>Javascript</span> <span>70%</span> </div>
-                     </div>
-                  </div>
-                  <div class="progress br-30">
-                     <div class="progress-bar bg-primary" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-title"><span>jQuery</span> <span>60%</span> </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+
             <div class="bio layout-spacing ">
                <div class="widget-content widget-content-area">
                   <h3 class="">Bio</h3>
                   <p>I'm Web Developer from California. I code and design websites worldwide. Mauris varius tellus vitae tristique sagittis. Sed aliquet, est nec auctor aliquet, orci ex vestibulum ex, non pharetra lacus erat ac nulla.</p>
-                  <p>Sed vulputate, ligula eget mollis auctor, lectus elit feugiat urna, eget euismod turpis lectus sed ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ut velit finibus, scelerisque sapien vitae, pharetra est. Nunc accumsan ligula vehicula scelerisque vulputate.</p>
                   <div class="bio-skill-box">
                      <div class="row">
                         <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">

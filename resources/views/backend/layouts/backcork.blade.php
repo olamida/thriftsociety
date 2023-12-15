@@ -13,124 +13,138 @@
 
         @stack('before-styles')
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="{{ asset('office/backcork/assets/css/loader.css') }}" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
         <link href="{{ asset('office/backcork/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('office/backcork/assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
 
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <style>
-            /*
-                The below code is for DEMO purpose --- Use it if you are using this demo otherwise Remove it
-            */
-            .page-title {
-                float: none;
-                margin-top: 0;
-                margin-bottom: 0;
-                align-self: center;
-                padding-right: 15px;
-                border-right: 1px solid #bfc9d4;
-                margin-right: 15px;
-            }
-            .page-title h3 {
-                margin-bottom: 0;
-                font-size: 20px;
-            }
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <style>
+        /*
+            The below code is for DEMO purpose --- Use it if you are using this demo otherwise Remove it
+        */
+        .page-title {
+            float: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            align-self: center;
+            padding-right: 15px;
+            border-right: 1px solid #bfc9d4;
+            margin-right: 15px;
+        }
+        .page-title h3 {
+            margin-bottom: 0;
+            font-size: 20px;
+        }
+        .page-header {
+            display: flex;
+            padding: 0;
+            margin-bottom: 16px;
+            margin-top: 30px;
+        }
+        .div1 {
+            display: flex;
+        }
+        .breadcrumb-one {
+            display: inline-block;
+            align-self: center;
+        }
+        .breadcrumb-one .breadcrumb {
+            padding: 0;
+            vertical-align: text-bottom;
+            margin-bottom: 0;
+            background: transparent;
+        }
+        .breadcrumb-one .breadcrumb-item {
+            align-self: center;
+        }
+        .breadcrumb-one .breadcrumb-item a {
+            color: #888ea8;
+            vertical-align: text-bottom;
+        }
+        .breadcrumb-one .breadcrumb-item a svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: sub;
+        }
+        .breadcrumb-one .breadcrumb-item.active a {
+            color: #009688;
+        }
+        .breadcrumb-one .breadcrumb-item span {
+            vertical-align: text-bottom;
+        }
+        .breadcrumb-one .breadcrumb-item.active {
+            color: #009688;
+            font-weight: 600;
+        }
+        .breadcrumb-one .breadcrumb-item+.breadcrumb-item {
+            padding: 0px;
+        }
+        .breadcrumb-one .breadcrumb-item+.breadcrumb-item::before {
+            color: #515365;
+            font-size: 0;
+            content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 24 24" fill="none" stroke="%23555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+            vertical-align: text-top;
+            padding: 0 6px;
+        }
+
+
+        @media(max-width: 575px) {
             .page-header {
-                display: flex;
-                padding: 0;
-                margin-bottom: 16px;
-                margin-top: 30px;
-                justify-content: flex-start;
+                display: block;
             }
-            .breadcrumb-one {
-                display: inline-block;
-                align-self: center;
+            .page-title {
+                margin-bottom: 20px;
+                border: none;
+                padding-right: 0;
+                margin-right: 0;
             }
-            .breadcrumb-one .breadcrumb {
-                padding: 0;
-                vertical-align: text-bottom;
-                margin-bottom: 0;
-                background: transparent;
-            }
-            .breadcrumb-one .breadcrumb-item {
-                align-self: center;
-            }
-            .breadcrumb-one .breadcrumb-item a {
-                color: #888ea8;
-                vertical-align: text-bottom;
-            }
-            .breadcrumb-one .breadcrumb-item a svg {
-                width: 20px;
-                height: 20px;
-                vertical-align: sub;
-            }
-            .breadcrumb-one .breadcrumb-item.active a {
-                color: #009688;
-            }
-            .breadcrumb-one .breadcrumb-item span {
-                vertical-align: text-bottom;
-            }
-            .breadcrumb-one .breadcrumb-item.active {
-                color: #009688;
-                font-weight: 600;
-            }
-            .breadcrumb-one .breadcrumb-item+.breadcrumb-item {
-                padding: 0px;
-            }
-            .breadcrumb-one .breadcrumb-item+.breadcrumb-item::before {
-                color: #515365;
-                font-size: 0;
-                content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 24 24" fill="none" stroke="%23555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>');
-                vertical-align: text-top;
-                padding: 0 6px;
-            }
+        }
 
 
-            @media(max-width: 575px) {
-                .page-header {
-                    display: block;
-                }
-                .page-title {
-                    margin-bottom: 20px;
-                    border: none;
-                    padding-right: 0;
-                    margin-right: 0;
-                }
-            }
+        /*
+            Just for demo purpose ---- Remove it.
+        */
+        /*<starter kit design>*/
 
+        .widget-one {
 
-            /*
-                Just for demo purpose ---- Remove it.
-            */
-            /*<starter kit design>*/
+        }
+        .widget-one h6 {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0px;
+            margin-bottom: 22px;
+        }
+        .widget-one p {
+            font-size: 15px;
+            margin-bottom: 0;
+        }
 
-            .widget-one {
+        /*</starter kit design>*/
 
-            }
-            .widget-one h6 {
-                font-size: 20px;
-                font-weight: 600;
-                letter-spacing: 0px;
-                margin-bottom: 22px;
-            }
-            .widget-one p {
-                font-size: 15px;
-                margin-bottom: 0;
-            }
-
-            /*</starter kit design>*/
-
-        </style>
+    </style>
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->        
+        
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
         @stack('after-styles')
 
     </head>
-
     <body class="alt-menu sidebar-noneoverflow">
+        <!-- BEGIN LOADER -->
+        <div id="load_screen"> 
+            <div class="loader"> 
+                <div class="loader-content">
+                    <div class="spinner-grow align-self-center"></div>
+                </div>
+            </div>
+        </div>
+        <!--  END LOADER -->
 
         <!--  BEGIN NAVBAR  -->
-        @include('backend.office.includes.header')
+            @include('backend.office.includes.header')
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -143,34 +157,34 @@
             @include('backend.office.includes.nav')
             <!--  END TOPBAR  -->
             
-            <!--  BEGIN CONTENT AREA  -->
+            <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content">
                 <div class="layout-px-spacing">
-                    <div class="page-header">
-                        <!--  BEGIN BREADCRUMB  -->
-                        @include('backend.office.includes.breadcrumbs')
-                        <!--  END BREADCRUMB  -->                        
+
+                    <!--  BEGIN BREADCRUMB  -->
+                    @include('backend.office.includes.breadcrumbs')
+                    <!--  END BREADCRUMB  -->                    
+
+                    <div class="row layout-top-spacing">
+                        <!-- Start #main -->
+                        @yield('content')
+                        <!-- End #main -->
                     </div>
 
-                    <!-- Start #main -->
-                    <div class="row">
-                    @yield('content')
-                    </div>
-                    <!-- End #main -->
-                    
+                    <!-- ======= Footer ======= -->
+                    @include('backend.office.includes.footer')
+                    <!-- End Footer -->
+
                 </div>
-
-                <!-- ======= Footer ======= -->
-                @include('backend.office.includes.footer')
-                <!-- End Footer -->
             </div>
-            <!--  END CONTENT AREA  -->
+            <!--  END CONTENT PART  -->
 
         </div>
         <!-- END MAIN CONTAINER -->
 
         @stack('before-scripts')
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+        <script src="{{ asset('office/backcork/assets/js/loader.js') }}"></script>
         <script src="{{ asset('office/backcork/assets/js/libs/jquery-3.1.1.min.js') }}"></script>
         <script src="{{ asset('office/backcork/bootstrap/js/popper.min.js') }}"></script>
         <script src="{{ asset('office/backcork/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -183,10 +197,11 @@
         </script>
         <script src="{{ asset('office/backcork/assets/js/custom.js') }}"></script>
         <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
+        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
         @stack('after-scripts')
 
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     </body>
 </html>

@@ -18,7 +18,10 @@ Route::view('/welcome', 'backend.office.dashboard')->name('office.welcome');
 //Route::view('/testPage', 'frontend.thrift.login');
 
 // Switch between the included languages
-Route::view('/testPage', 'backend.office.dashboard');
+//Route::view('/testPage', 'backend.office.dashboard');
+
+// Switch between the included languages
+Route::view('/testPage', 'backend.layouts.backcork');
 
 // Members index page
 Route::view('/members', 'backend.office.members.index')->name('office.members');

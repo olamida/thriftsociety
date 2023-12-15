@@ -6,9 +6,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('office/backcork/assets/css/forms/theme-checkbox-radio.css') }}">
     <link href="{{ asset('office/backcork/plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('office/backcork/assets/css/apps/contacts.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('office/backcork/assets/css/dashboard/dash_2.css') }}" rel="stylesheet" type="text/css" />
 @endpush
-
-
 
 @section('content')
                     <div class="col-lg-12">
