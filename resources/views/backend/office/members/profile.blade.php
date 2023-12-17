@@ -3,7 +3,9 @@
 @section('title', __('Members'))
 
 @push('after-styles')
-    <link href="{{ asset('office/backcork/assets/css/users/user-profile.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('office/backcork/assets/css/users/user-profile.css') }}" rel="stylesheet" type="text/css" />
+   <link href="{{ asset('office/backcork/assets/css/widgets/modules-widgets.css') }}" rel="stylesheet" type="text/css" />  
+   
 @endpush
 
 @section('content')
@@ -99,86 +101,6 @@
                   </div>
                </div>
             </div>
-            <div class="education layout-spacing ">
-               <div class="widget-content widget-content-area">
-                  <h3 class="">Education</h3>
-                  <div class="timeline-alter">
-                     <div class="item-timeline">
-                        <div class="t-meta-date">
-                           <p class="">04 Mar 2009</p>
-                        </div>
-                        <div class="t-dot">
-                        </div>
-                        <div class="t-text">
-                           <p>Royal Collage of Art</p>
-                           <p>Designer Illustrator</p>
-                        </div>
-                     </div>
-                     <div class="item-timeline">
-                        <div class="t-meta-date">
-                           <p class="">25 Apr 2014</p>
-                        </div>
-                        <div class="t-dot">
-                        </div>
-                        <div class="t-text">
-                           <p>Massachusetts Institute of Technology (MIT)</p>
-                           <p>Designer Illustrator</p>
-                        </div>
-                     </div>
-                     <div class="item-timeline">
-                        <div class="t-meta-date">
-                           <p class="">04 Apr 2018</p>
-                        </div>
-                        <div class="t-dot">
-                        </div>
-                        <div class="t-text">
-                           <p>School of Art Institute of Chicago (SAIC)</p>
-                           <p>Designer Illustrator</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="work-experience layout-spacing ">
-               <div class="widget-content widget-content-area">
-                  <h3 class="">Work Experience</h3>
-                  <div class="timeline-alter">
-                     <div class="item-timeline">
-                        <div class="t-meta-date">
-                           <p class="">04 Mar 2009</p>
-                        </div>
-                        <div class="t-dot">
-                        </div>
-                        <div class="t-text">
-                           <p>Netfilx Inc.</p>
-                           <p>Designer Illustrator</p>
-                        </div>
-                     </div>
-                     <div class="item-timeline">
-                        <div class="t-meta-date">
-                           <p class="">25 Apr 2014</p>
-                        </div>
-                        <div class="t-dot">
-                        </div>
-                        <div class="t-text">
-                           <p>Google Inc.</p>
-                           <p>Designer Illustrator</p>
-                        </div>
-                     </div>
-                     <div class="item-timeline">
-                        <div class="t-meta-date">
-                           <p class="">04 Apr 2018</p>
-                        </div>
-                        <div class="t-dot">
-                        </div>
-                        <div class="t-text">
-                           <p>Design Reset Inc.</p>
-                           <p>Designer Illustrator</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
         </div>
         <div class="col-xl-8 col-lg-6 col-md-7 col-sm-12 layout-top-spacing">
 
@@ -190,14 +112,95 @@
                      <div class="row">
                         <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">
                            <div class="d-flex b-skills">
-                              <div>
-                              </div>
-                              <div class="">
-                                 <h5>Sass Applications</h5>
-                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse eu fugiat nulla pariatur.</p>
+                              <div class="widget widget-table-one">
+                                 <div class="widget-heading">
+                                    <h5 class="">Transactions</h5>
+                                 </div>
+
+                                 <div class="widget-content">
+                                    <div class="transactions-list">
+                                          <div class="t-item">
+                                             <div class="t-company-name">
+                                                <div class="t-icon">
+                                                      <div class="icon">
+                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                                      </div>
+                                                </div>
+                                                <div class="t-name">
+                                                      <h4>Electricity Bill</h4>
+                                                      <p class="meta-date">4 Aug 1:00PM</p>
+                                                </div>
+
+                                             </div>
+                                             <div class="t-rate rate-dec">
+                                                <p><span>-$16.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></p>
+                                             </div>
+                                          </div>
+                                    </div>
+
+                                    <div class="transactions-list">
+                                          <div class="t-item">
+                                             <div class="t-company-name">
+                                                <div class="t-icon">
+                                                      <div class="avatar avatar-xl">
+                                                         <span class="avatar-title rounded-circle">SP</span>
+                                                      </div>
+                                                </div>
+                                                <div class="t-name">
+                                                      <h4>Shaun Park</h4>
+                                                      <p class="meta-date">4 Aug 1:00PM</p>
+                                                </div>
+                                             </div>
+                                             <div class="t-rate rate-inc">
+                                                <p><span>+$66.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></p>
+                                             </div>
+                                          </div>
+                                    </div>
+
+                                    <div class="transactions-list">
+                                          <div class="t-item">
+                                             <div class="t-company-name">
+                                                <div class="t-icon">
+                                                      <div class="avatar avatar-xl">
+                                                         <span class="avatar-title rounded-circle">AD</span>
+                                                      </div>
+                                                </div>
+                                                <div class="t-name">
+                                                      <h4>Amy Diaz</h4>
+                                                      <p class="meta-date">4 Aug 1:00PM</p>
+                                                </div>
+
+                                             </div>
+                                             <div class="t-rate rate-inc">
+                                                <p><span>+$66.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></p>
+                                             </div>
+                                          </div>
+                                    </div>
+
+                                    <div class="transactions-list">
+                                          <div class="t-item">
+                                             <div class="t-company-name">
+                                                <div class="t-icon">
+                                                      <div class="icon">
+                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                                      </div>
+                                                </div>
+                                                <div class="t-name">
+                                                      <h4>Netflix</h4>
+                                                      <p class="meta-date">4 Aug 1:00PM</p>
+                                                </div>
+
+                                             </div>
+                                             <div class="t-rate rate-dec">
+                                                <p><span>-$32.00</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></p>
+                                             </div>
+                                          </div>
+                                    </div>
+                                 </div>
                               </div>
                            </div>
                         </div>
+
                         <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">
                            <div class="d-flex b-skills">
                               <div>
@@ -233,7 +236,154 @@
                </div>
             </div>
         </div>
+
+                     <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12 layout-spacing">
+                        <div class="widget-content widget-content-area">
+                           <div class="widget widget-table-one">
+                              <div class="widget-heading">
+                                 <h5 class="">Transactions</h5>
+                              </div>
+
+                              <div class="widget-content">
+                                 <div class="transactions-list">
+                                       <div class="t-item">
+                                          <div class="t-company-name">
+                                             <div class="t-icon">
+                                                   <div class="icon">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                                   </div>
+                                             </div>
+                                             <div class="t-name">
+                                                   <h4>Electricity Bill</h4>
+                                                   <p class="meta-date">4 Aug 1:00PM</p>
+                                             </div>
+
+                                          </div>
+                                          <div class="t-rate rate-dec">
+                                             <p><span>-$16.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></p>
+                                          </div>
+                                       </div>
+                                 </div>
+
+                                 <div class="transactions-list">
+                                       <div class="t-item">
+                                          <div class="t-company-name">
+                                             <div class="t-icon">
+                                                   <div class="avatar avatar-xl">
+                                                      <span class="avatar-title rounded-circle">SP</span>
+                                                   </div>
+                                             </div>
+                                             <div class="t-name">
+                                                   <h4>Shaun Park</h4>
+                                                   <p class="meta-date">4 Aug 1:00PM</p>
+                                             </div>
+                                          </div>
+                                          <div class="t-rate rate-inc">
+                                             <p><span>+$66.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></p>
+                                          </div>
+                                       </div>
+                                 </div>
+
+                                 <div class="transactions-list">
+                                       <div class="t-item">
+                                          <div class="t-company-name">
+                                             <div class="t-icon">
+                                                   <div class="avatar avatar-xl">
+                                                      <span class="avatar-title rounded-circle">AD</span>
+                                                   </div>
+                                             </div>
+                                             <div class="t-name">
+                                                   <h4>Amy Diaz</h4>
+                                                   <p class="meta-date">4 Aug 1:00PM</p>
+                                             </div>
+
+                                          </div>
+                                          <div class="t-rate rate-inc">
+                                             <p><span>+$66.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></p>
+                                          </div>
+                                       </div>
+                                 </div>
+
+                                 <div class="transactions-list">
+                                       <div class="t-item">
+                                          <div class="t-company-name">
+                                             <div class="t-icon">
+                                                   <div class="icon">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                                   </div>
+                                             </div>
+                                             <div class="t-name">
+                                                   <h4>Netflix</h4>
+                                                   <p class="meta-date">4 Aug 1:00PM</p>
+                                             </div>
+
+                                          </div>
+                                          <div class="t-rate rate-dec">
+                                             <p><span>-$32.00</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></p>
+                                          </div>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+                        <div class="widget-content widget-content-area">
+                           <div class="widget widget-account-invoice-one">
+
+                              <div class="widget-heading">
+                                 <h5 class="">Account Info</h5>
+                              </div>
+
+                              <div class="widget-content">
+                                 <div class="invoice-box">
+                                       
+                                       <div class="acc-total-info">
+                                          <h5>Balance</h5>
+                                          <p class="acc-amount">$470</p>
+                                       </div>
+
+                                       <div class="inv-detail">                                        
+                                          <div class="info-detail-1">
+                                             <p>Monthly Plan</p>
+                                             <p>$ 199.0</p>
+                                          </div>
+                                          <div class="info-detail-2">
+                                             <p>Taxes</p>
+                                             <p>$ 17.82</p>
+                                          </div>
+                                          <div class="info-detail-3 info-sub">
+                                             <div class="info-detail">
+                                                   <p>Extras this month</p>
+                                                   <p>$ -0.68</p>
+                                             </div>
+                                             <div class="info-detail-sub">
+                                                   <p>Netflix Yearly Subscription</p>
+                                                   <p>$ 0</p>
+                                             </div>
+                                             <div class="info-detail-sub">
+                                                   <p>Others</p>
+                                                   <p>$ -0.68</p>
+                                             </div>
+                                          </div>
+                                       </div>
+
+                                       <div class="inv-action">
+                                          <a href="" class="btn btn-outline-dark">Summary</a>
+                                          <a href="" class="btn btn-danger">Transfer</a>
+                                       </div>
+                                 </div>
+                              </div>
+
+                           </div>
+                        </div>
+                    </div>
         
 @endsection
 
+@push('after-scripts')
+    <script src="{{ asset('office/backcork/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('office/backcork/assets/js/widgets/modules-widgets.js') }}"></script>
+@endpush
 
